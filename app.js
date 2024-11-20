@@ -35,7 +35,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.all("/api/users", (req, res) => {
+app.get("/api/users", (req, res) => {
     db.all("SELECT * FROM users;", (err, users) => {
         if (err) {
             return res.status(500).json({message: err.message})
